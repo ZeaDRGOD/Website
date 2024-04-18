@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgb(131, 131, 131);
+    padding: 25px 25% 25px 25%;
+    border-radius: 10%;
+}
+
+#form #name {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    font-family: 'Minecraft';
+    padding-left: 15px;
+    background-color: aliceblue;
+}
+
+#form label {
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 800;
+}
+
+#form select {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    font-family: 'Minecraft';
+    padding-left: 15px;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+#image {
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(119, 119, 119);
+    margin-top: 10px;
+    background-color: aliceblue;
+
+}
+
+#qr {
+    width: 350px;
+    border-radius: 20px;
+}
+
+#submit {
+    border-radius: 10px;
+    font-family: 'Minecraft';
+    outline: none;
+    padding: 15px 50px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+#agree a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) {
+    #form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 20px rgb(131, 131, 131);
+        padding: 25px 15% 25px 15%;
+        border-radius: 20px;
+    }
+
+    #image {
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgb(119, 119, 119);
+        margin-top: 10px;
+        background-color: aliceblue;
+    }
+
+    #qr {
+        width: 300px;
+        border-radius: 20px;
+    }
+
+    #form h1 {
+        font-size: 25px;
+    }
+}
