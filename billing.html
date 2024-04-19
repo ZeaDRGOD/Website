@@ -8,7 +8,6 @@
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1206592082416894032/1229880747083694170/New_Project_18_4900078.png?ex=66314ab4&is=661ed5b4&hm=43b2043aa8bfcc3cad3e78a225ca688bff9643897ace47269066eb9808f991ed&">
     <link rel="stylesheet" href="css/billing.css">
     <link rel="stylesheet" href="css/index.css">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?compat=recaptcha" async defer></script>
     <title>Form | The Heavenly Network</title>
 </head>
 <body>
@@ -101,7 +100,6 @@
 
                 <br><br><br>
                 <br><br><br>
-                <br><br><br>
                 <input type="checkbox">
                 <label id="agree" for="agree">I have read and agree to the <a href="#">terms and conditions</a>.</label><br>
                 <input type="submit" value="Submit" id="submit">
@@ -121,6 +119,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         function checkSubmissionLimit() {
+
             var currentDate = new Date().toLocaleDateString();
             var lastSubmissionDate = localStorage.getItem('lastSubmissionDate');
 
@@ -133,10 +132,15 @@
 
             if (submissionCount < 1) {
                 localStorage.setItem('submissionCount', submissionCount + 1);
+                const submitButton = document.getElementById('submit');
+                submitButton.disabled = true;
+                submitButton.value = 'Loading...';
                 return true;
             } else {
+                const submitButton = document.getElementById('submit');
+                submitButton.disabled = true;
                 alert('Your form will be reviewed within 24 hours.');
-                return false;
+                return submitButton.value = 'Try again later!', false;
             }
         }
 
@@ -147,6 +151,7 @@
                 return;
             }
 
+            var BuyDate = new Date().toLocaleDateString();
             var formData = new FormData();
             formData.append('name', document.getElementById('name').value);
             formData.append('platform', document.getElementById('platform').value);
@@ -160,10 +165,11 @@
                 .then(function(imageUrl) {
                     var embedData = {
                         title: 'New Minecraft Rank Submission',
-                        description: 'Name: ' + formData.get('name') + '\n' +
-                                    'Platform: ' + formData.get('platform') + '\n' +
+                        description: 'Username: ' + formData.get('name') + '\n' +
+                                    'Game: ' + formData.get('platform') + '\n' +
                                     'Server: ' + formData.get('server') + '\n' +
-                                    'Rank: ' + formData.get('rank'),
+                                    'Rank: ' + formData.get('rank') + '\n' +
+                                    'Date: ' + BuyDate,
                         color: 16777215, // White color
                         image: {
                             url: imageUrl
@@ -171,8 +177,12 @@
                     };
 
                     var payload = {
-                        embeds: [embedData]
+                        embeds: [embedData],
+                        content: '>>> ## 🎉**Here! New form ke apply**🎉' + '\n\n' + '@everyone' + '\n\n' + '🎨 check merl mer ke buy rank or apply ko' + '\n' + '💰 <@1050399202162782339> check mer bank mer see lui ot ber see dak rank oy ke tv!' + '\n' + '```/lp user ' + formData.get('name') + ' parent addtemp ' + formData.get('rank') + ' 30d```'
+                        
                     };
+
+
 
                     return fetch(webhookURL, {
                         method: 'POST',
