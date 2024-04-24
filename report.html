@@ -118,7 +118,7 @@
 
             var submissionCount = parseInt(localStorage.getItem('submissionCount')) || 0;
 
-            if (submissionCount < 100) {
+            if (submissionCount < 10) {
                 localStorage.setItem('submissionCount', submissionCount + 1);
                 const submitButton = document.getElementById('submit');
                 submitButton.disabled = true;
@@ -127,7 +127,7 @@
             } else {
                 const submitButton = document.getElementById('submit');
                 submitButton.disabled = true;
-                alert('Your form will be reviewed within 24 hours.');
+                alert('1 Day can report only 10 times');
                 return submitButton.value = 'Try again later!', false;
             }
         }
@@ -152,9 +152,8 @@
             sendImage(formData.get('image'))
                 .then(function(imageUrl) {
                     var embedData = {
-                        title: 'Report Submission',
-                        description: '✅ Report by Username: ' + formData.get('name') + '\n' +
-                                    '❗ Report to Username: ' + formData.get('rname') + '\n' +
+                        title: 'Report Target',
+                        description: '❗ Report to Username: ' + formData.get('rname') + '\n' +
                                     '🗿 Player: ' + formData.get('platform') + '\n' +
                                     '⌛ Date: ' + BuyDate + '\n\n' +
                                     'https://theheavenly.net/report',
