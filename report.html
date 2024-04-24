@@ -82,8 +82,8 @@
                 <label for="message">Reason:</label><br>
                 <textarea id="message" name="message" required></textarea><br><br><br>
 
-                <label for="image">UPLOAD PROOF:</label><br>
-                <input type="file" id="image" name="image" accept="image/*"><br><br>
+                <label for="proof">UPLOAD PROOF (Video/Image):</label><br>
+                <input type="file" id="image" name="image" accept="video/*,image/*"><br><br>
 
                 <br><br><br>
                 <br><br><br>
@@ -135,6 +135,7 @@
         document.getElementById('minecraftRankForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
+            // Form data handling
             if (!checkSubmissionLimit()) {
                 return;
             }
@@ -149,6 +150,31 @@
 
             var webhookURL = 'https://discord.com/api/webhooks/1232723941961760788/3xUTRlG37dUPl2mCtHFFM6K7IfYhBZgfRGdmP0f4fN0SLk7wxyfCIml3gakw7-CUATdu';
 
+            // Function to send image to Discord webhook
+            function sendImage(imageFile) {
+                var formData = new FormData();
+                formData.append('image', imageFile);
+
+                return fetch(webhookURL, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to send image to Discord webhook');
+                    }
+                })
+                .then(data => {
+                    return data.url;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+
+            // Sending report and uploaded proof image to Discord
             sendImage(formData.get('image'))
                 .then(function(imageUrl) {
                     var embedData = {
@@ -160,15 +186,14 @@
                         color: 16777215, // White color
                         image: {
                             url: imageUrl
-                        }
-                    };
+                        }};
 
                     var payload = {
                         embeds: [embedData],
-                        content: '>>> ## ⚠ Report Submission' + '\n\n<@1050399202162782339> <@947464447637716997> <@1039219626749472838> <@1161231516534308976> <@771534323907166228>' + '\n' + '🕵️‍♂️ **Please looking to this report**!' + '\n\n' + '💎 Reported by: **' + formData.get('name') + '**' + '\n\n\n' + ' 📃 Reason 📃' + '\n' + '``' + formData.get('reason') + '``' + '\n\n' + '- **The Heavenly Report**' + '\n\n'
-                        
+                        content: '>>> ## ⚠ Report Submission\n\n<@1050399202162782339> <@947464447637716997> <@1039219626749472838> <@1161231516534308976> <@771534323907166228>\n🕵️‍♂️ **Please look into this report!**\n\n💎 Reported by: **' + formData.get('name') + '**\n\n\n 📃 Reason 📃\n``' + formData.get('reason') + '``\n\n- **The Heavenly Report**\n\n'
                     };
 
+                    // Sending payload to Discord webhook
                     return fetch(webhookURL, {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
@@ -177,9 +202,9 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        location.href = 'thankyou'
+                        location.href = 'thankyou';
                     } else {
-                        location.herf = 'error'
+                        location.href = 'error';
                     }
                 })
                 .catch(error => {
@@ -187,30 +212,6 @@
                 });
         });
 
-        function sendImage(imageFile) {
-            var formData = new FormData();
-            formData.append('image', imageFile);
-
-            var webhookURL = 'https://discord.com/api/webhooks/1232723941961760788/3xUTRlG37dUPl2mCtHFFM6K7IfYhBZgfRGdmP0f4fN0SLk7wxyfCIml3gakw7-CUATdu';
-
-            return fetch(webhookURL, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Failed to send image to Discord webhook');
-                }
-            })
-            .then(data => {
-                return data.url;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
 
         let url = "theheavenly.net";
         $(document).ready(() => {
