@@ -92,7 +92,7 @@
                 </select><br><br><br>
 
                 <label for="qr">SCAN AND PAY:</label><br>
-                <img id="qr" src="https://cdn.discordapp.com/attachments/1206592082416894032/1232708707926933504/2F2B3EB8-0617-4BC8-8528-EE587AE5D09D.jpg?ex=662a70f2&is=66291f72&hm=fa06dbf820b9fb75ddadf8c4a12bc302f989a64f2c3ee7085cea7232d3324460&">
+                <img id="qr" src="/img/qr.jpg">
                 <br><br><br><br>
 
                 <label for="image">UPLOAD PAYMENT RECIPT:</label><br>
@@ -130,7 +130,7 @@
 
             var submissionCount = parseInt(localStorage.getItem('submissionCount')) || 0;
 
-            if (submissionCount < 1) {
+            if (submissionCount < 3) {
                 localStorage.setItem('submissionCount', submissionCount + 1);
                 const submitButton = document.getElementById('submit');
                 submitButton.disabled = true;
