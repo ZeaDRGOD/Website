@@ -8,6 +8,7 @@
     <link rel="icon" href="/img/logo.png">
     <link rel="stylesheet" href="/css/billing.css">
     <link rel="stylesheet" href="/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
     <title>Ranks | The Heavenly Network</title>
 </head>
 <body>
@@ -66,24 +67,23 @@
         <div id="form">
             <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-family: 'Minecraft'; border-bottom: solid 5px black; padding-bottom: 10px;">The Heavenly Store</h1><br><br><br>
             <form id="minecraftRankForm" enctype="multipart/form-data">
-                <label for="name">NAME:</label><br>
-                <input type="text" id="name" name="name" placeholder="Username" required><br><br><br>
+                <input type="text" id="name" name="name" placeholder="Username"><br><br><br>
 
                 <label for="platform">MINECRAFT:</label><br>
-                <select id="platform" name="platform" required>
+                <select id="platform" name="platform">
                     <option value="Java">Java</option>
                     <option value="Bedrock">Bedrock</option>
                 </select><br><br><br>
 
                 <label for="server">SERVER:</label><br>
-                <select id="server" name="server" required>
+                <select id="server" name="server">
                     <option value="Economy">Economy</option>
                     <option value="Plot">Plot</option>
-                    <option value="Kingdom">Kingdom</option>
+                    <option value="Vanilla">Vanilla</option>
                 </select><br><br><br>
 
                 <label for="rank">RANK:</label><br>
-                <select id="rank" name="rank" required>
+                <select id="rank" name="rank">
                     <option value="VIP">VIP | $1</option>
                     <option value="MVP">MVP | $2</option>
                     <option value="ACE">ACE | $3</option>
@@ -91,21 +91,52 @@
                     <option value="CUSTOM">CUSTOM | $12</option>
                 </select><br><br><br>
 
-                <label for="qr">SCAN AND PAY:</label><br>
-                <img id="qr" src="/img/qr.jpg">
-                <br><br><br><br>
+                <br><br><br>
+                <label for="rank">CAMBODIA BANK:</label><br><br>
+                <div id="payments">
+                    <div id="myBtn" class="bank" onclick="Aba()">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLMfBk43FayavSntfZpvuPE714Q4-DYibTqE5-Yl12Nw&s">
+                        <p>ABA BANK</p>
+                    </div>
+                    <div id="myBtn2" class="bank" onclick="Acleda()">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr2b89m8p1uRikBd6eNHfDJvvXTw9Wz9C3pBZrgr17LA&s">
+                        <p>ACELDA BANK</p>
+                    </div>
+                    <div id="myBtn3" class="bank" onclick="TrueMoney()">
+                        <img src="https://play-lh.googleusercontent.com/80VUamRUVkzf1kYcc3UIVkj4IHCOtfAb02w-EKqKkvDCnrnKkb5NDshunAYcEbhzK0xZ=w240-h480-rw">
+                        <p>TRUE MONEY BANK</p>
+                    </div>
+                </div>
+                <div id="myModal" class="modal">
 
-                <label for="image">UPLOAD PAYMENT RECIPE:</label><br>
-                <input type="file" id="image" name="image" accept="image/*" required><br><br>
-
-                <br><br><br>
-                <label for="tutorial">TOTURIAL VIDEO</label><br><br>
-                <a style="background-color: rgb(173, 173, 173);color: black;text-decoration: none; padding: 15px 40px; border-radius: 15px; box-shadow: 0 0 10px rgb(177, 177, 177);" href="/tutorial.html">View ▶</a>
-                <br><br><br>
-                <br><br><br>
-                <input type="checkbox" required>
-                <label id="agree" for="agree">I have read and agree to the <a href="#">terms and conditions</a>.</label><br>
-                <input type="submit" value="Submit" id="submit">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <h2>Payment</h2>
+                        <br><br>
+                        <img src="/img/aba.jpg" id="qrcode">
+                        <br>
+                        <p>Scan to pay</p>
+                        <p>or</p>
+                        <a id="download" href="" download>Download KHQR <i class="ri-download-line"></i></a>
+                        <br><br><br>
+                        <br><br><br>
+                        <label for="image">UPLOAD PAYMENT RECIPE:</label>
+                        <input type="file" id="image" name="image" accept="image/*">
+                        <br><br>
+                        <input type="submit" value="Submit" id="submit">
+                        <br><br><br>
+                        <br><br><br>
+                        <br><br><br>
+                        <hr>
+                        <footer>
+                            <div>
+                                <p style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; font-weight: 600;">Copyright © 2024 The Heavenly Network. All rights reserved.</p>
+                            </div>
+                        </footer>
+                        <br>
+                    </div>
+                  
+                </div>
             </form>
         </div>
     </div>
@@ -160,6 +191,63 @@
 
             // Show alert message
             alert("Server IP copied to clipboard!");
+        }
+
+        
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var btn2 = document.getElementById("myBtn2");
+        var btn3 = document.getElementById("myBtn3");
+
+        let input = document.getElementById("name")
+        
+        btn.onclick = function() {
+            input.addEventListener("input", function(e) {
+                if(input.value.length == 0) {
+                    btn.disabled = true
+                    event.cancelBubble = true;
+            } else {
+                btn.disabled = false
+            }
+            })
+
+            setTimeout(() => {  modal.style.display = "block"; }, 500);
+            var img = document.getElementById('qrcode');
+            var download = document.getElementById('download');
+            download.href = '/img/aba.jpg'
+            img.src = '/img/aba.jpg'
+        }
+        btn2.onclick = function() {
+            input.addEventListener("input", function(e) {
+                if(input.value.length == 0) {
+                    btn.disabled = true
+                    event.cancelBubble = true;
+            } else {
+                btn.disabled = false
+            }
+            })
+
+            setTimeout(() => {  modal.style.display = "block"; }, 500);
+            var img = document.getElementById('qrcode');
+            var download = document.getElementById('download');
+            download.href = '/img/AC.jpg'
+            img.src = '/img/AC.jpg'
+        }
+        btn3.onclick = function() {
+            input.addEventListener("input", function(e) {
+                if(input.value.length == 0) {
+                    btn.disabled = true
+                    event.cancelBubble = true;
+            } else {
+                btn.disabled = false
+            }
+            })
+
+            setTimeout(() => {  modal.style.display = "block"; }, 500);
+            var img = document.getElementById('qrcode');
+            var download = document.getElementById('download');
+            download.href = '/img/qr.jpg'
+            img.src = '/img/qr.jpg'
         }
     </script>
 </body>
