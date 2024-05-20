@@ -121,7 +121,7 @@
                         <a id="download" href="" download>Download KHQR <i class="ri-download-line"></i></a>
                         <br><br><br>
                         <br><br><br>
-                        <label for="image">UPLOAD PAYMENT RECIPE:</label>
+                        <label for="image">UPLOAD PAYMENT RECIPT:</label>
                         <input type="file" id="image" name="image" accept="image/*">
                         <br><br>
                         <input type="submit" value="Submit" id="submit">
@@ -153,98 +153,5 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/RankForm.js"></script>
-    <script src="/js/ranks.js"></script>
-    <script>
-        let url = "theheavenly.net";
-        $(document).ready(() => {
-            $.getJSON("https://api.mcsrvstat.us/1/" + url, (status) => {
-                if (status.debug.ping) {
-                    $("#status").append("ONLINE");
-                    $("#status2").append("PLAYER");
-                    $("#players_num").append(status.players.online)
-                    $("#players_num2").append(status.players.online)
-                } else {
-                    $("#status").append("OFFLINE");
-                    $("#status2").append("OFFLINE");
-                    $("#players_num").append("0");
-                    $("#players_num2").append("0");
-                }
-                $("body").fadeIn(2000);
-            });
-        });
-        function copyServerIP() {
-            // Server IP to copy
-            var serverIP = "theheavenly.net:19132"; // Replace with your server IP
-
-            // Create a temporary input element
-            var tempInput = document.createElement("input");
-            tempInput.value = serverIP;
-            document.body.appendChild(tempInput);
-
-            // Select the text in the input element
-            tempInput.select();
-            tempInput.setSelectionRange(0, 99999); // For mobile devices
-
-            // Copy the selected text to the clipboard
-            document.execCommand("copy");
-
-            // Remove the temporary input element
-            document.body.removeChild(tempInput);
-
-            // Show alert message
-            alert("Server IP copied to clipboard!");
-        }
-
-        
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var btn2 = document.getElementById("myBtn2");
-        var btn3 = document.getElementById("myBtn3");
-
-        let input = document.getElementById("name")
-        
-        btn.onclick = function() {
-            if (server === 'none') {
-                alert('Please select a server.');
-                rankSelect.disabled = true;
-                priceDisplay.textContent = '';
-                return;
-            }
-
-            setTimeout(() => {  modal.style.display = "block"; }, 500);
-            var img = document.getElementById('qrcode');
-            var download = document.getElementById('download');
-            download.href = '/img/aba.jpg'
-            img.src = '/img/aba.jpg'
-        }
-        btn2.onclick = function() {
-            if (server === 'none') {
-                alert('Please select a server.');
-                rankSelect.disabled = true;
-                priceDisplay.textContent = '';
-                return;
-            }
-
-            setTimeout(() => {  modal.style.display = "block"; }, 500);
-            var img = document.getElementById('qrcode');
-            var download = document.getElementById('download');
-            download.href = '/img/AC.jpg'
-            img.src = '/img/AC.jpg'
-        }
-        btn3.onclick = function() {
-            if (server === 'none') {
-                alert('Please select a server.');
-                rankSelect.disabled = true;
-                priceDisplay.textContent = '';
-                return;
-            }
-
-            setTimeout(() => {  modal.style.display = "block"; }, 500);
-            var img = document.getElementById('qrcode');
-            var download = document.getElementById('download');
-            download.href = '/img/qr.jpg'
-            img.src = '/img/qr.jpg'
-        }
-    </script>
 </body>
 </html>
