@@ -94,6 +94,16 @@ input[type=checkbox] {
     text-decoration: none;
 }
 
+#price-display {
+    font-family: Minecraftia;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: aliceblue;
+    border: solid 2px rgb(216, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+}
+
 #myModal {
     display: none;
     justify-content: center;
@@ -171,6 +181,7 @@ input[type=checkbox] {
 }
 
 .bank:hover {
+    cursor: pointer;
     transform: translateX(20px);
     transition: all .3s;
 }

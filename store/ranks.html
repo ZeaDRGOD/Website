@@ -77,19 +77,19 @@
 
                 <label for="server">SERVER:</label><br>
                 <select id="server" name="server">
+                    <option value="none">Select Server</option>
                     <option value="Economy">Economy</option>
-                    <option value="Kingdom">Vanilla</option>
+                    <option value="Kingdom">Kingdom</option>
                 </select><br><br><br>
 
                 <label for="rank">RANK:</label><br>
-                <select id="rank" name="rank">
-                    <option value="VIP">VIP | $1</option>
-                    <option value="MVP">MVP | $2</option>
-                    <option value="ACE">ACE | $3</option>
-                    <option value="PREMIUM">PREMIUM | $10</option>
-                    <option value="CUSTOM">CUSTOM | $12</option>
+                <select id="rank" name="rank" disabled>
+                    <option value="VIP">VIP</option>
+                    <option value="MVP">MVP</option>
+                    <option value="ACE">ACE</option>
+                    <option value="PREMIUM">PREMIUM</option>
+                    <option value="CUSTOM">CUSTOM</option>
                 </select><br><br><br>
-
                 <br><br><br>
                 <label for="rank">CAMBODIA BANK:</label><br><br>
                 <div id="payments">
@@ -111,6 +111,8 @@
                     <!-- Modal content -->
                     <div class="modal-content">
                         <h2>Payment</h2>
+                        <br>
+                        <div id="price-display">Total: $0</div>
                         <br><br>
                         <img src="/img/aba.jpg" id="qrcode">
                         <br>
@@ -151,6 +153,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/RankForm.js"></script>
+    <script src="/js/ranks.js"></script>
     <script>
         let url = "theheavenly.net";
         $(document).ready(() => {
@@ -201,14 +204,12 @@
         let input = document.getElementById("name")
         
         btn.onclick = function() {
-            input.addEventListener("input", function(e) {
-                if(input.value.length == 0) {
-                    btn.disabled = true
-                    event.cancelBubble = true;
-            } else {
-                btn.disabled = false
+            if (server === 'none') {
+                alert('Please select a server.');
+                rankSelect.disabled = true;
+                priceDisplay.textContent = '';
+                return;
             }
-            })
 
             setTimeout(() => {  modal.style.display = "block"; }, 500);
             var img = document.getElementById('qrcode');
@@ -217,14 +218,12 @@
             img.src = '/img/aba.jpg'
         }
         btn2.onclick = function() {
-            input.addEventListener("input", function(e) {
-                if(input.value.length == 0) {
-                    btn.disabled = true
-                    event.cancelBubble = true;
-            } else {
-                btn.disabled = false
+            if (server === 'none') {
+                alert('Please select a server.');
+                rankSelect.disabled = true;
+                priceDisplay.textContent = '';
+                return;
             }
-            })
 
             setTimeout(() => {  modal.style.display = "block"; }, 500);
             var img = document.getElementById('qrcode');
@@ -233,14 +232,12 @@
             img.src = '/img/AC.jpg'
         }
         btn3.onclick = function() {
-            input.addEventListener("input", function(e) {
-                if(input.value.length == 0) {
-                    btn.disabled = true
-                    event.cancelBubble = true;
-            } else {
-                btn.disabled = false
+            if (server === 'none') {
+                alert('Please select a server.');
+                rankSelect.disabled = true;
+                priceDisplay.textContent = '';
+                return;
             }
-            })
 
             setTimeout(() => {  modal.style.display = "block"; }, 500);
             var img = document.getElementById('qrcode');
