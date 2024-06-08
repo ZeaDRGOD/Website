@@ -79,8 +79,8 @@
                 <select id="server" name="server">
                     <option value="none">Select Server</option>
                     <option value="Economy">Economy</option>
-                    <option value="Lifesteal">Lifesteal</option>
                     <option value="Kingdom">Kingdom</option>
+                    <option value="Lifesteal">Lifesteal</option>
                 </select><br><br><br>
 
                 <label for="rank">RANK:</label><br>
@@ -154,6 +154,23 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/js/RankForm.js"></script>
-    <script src="/js/ranks.js"></script>
+    <script>
+        function Aba() {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("qrcode").src = "/img/aba.jpg";
+            document.getElementById("download").href = "/img/aba.jpg";
+        }
+        function Acleda() {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("qrcode").src = "/img/AC.jpg";
+            document.getElementById("download").href = "/img/AC.jpg";
+        }
+        function TrueMoney() {
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("qrcode").src = "/img/qr.jpg";
+            document.getElementById("download").href = "/img/qr.jpg";
+        }
+
+    </script>
 </body>
 </html>
