@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta property="og:title" content="Mikita MC Network" />
-    <meta property="og:description" content="Website of the server!" />
+    <meta property="og:title" content="Register Helper" />
+    <meta property="og:description" content="Form to allow you to register as a helper." />
     <meta property="og:image" content="https://store.mikitamc.ink/img/logo.png" />
-    <meta property="og:url" content="https://store.mikitamc.ink/" />
+    <meta property="og:url" content="https://store.mikitamc.ink/register" />
     <meta property="og:type" content="website" />
-
+    
     <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/register.css">
     <script src="https://dipped.dev/static/plugins/discordwidget/index.js"></script>
     <title>HOME | MIKITA MC</title>
 </head>
@@ -81,102 +82,80 @@
             </div>
         </div>
     </div>
-    <div style="display: flex;flex-wrap: wrap;position: relative;gap: 20%;justify-content: center;flex-direction: column;">
-        <div class="server" >
+
+    <div class="form-container">
+        <h2 style="font-family: 'Minecraftia';">Helper Registration</h2>
+        <form id="register">
+            <br><hr><br>
+            <div class="Question">
+                <h3>1</h3>
+                <p>What is your discord and game name?</p>
+            </div>
+            <input type="text" id="discord" placeholder="Discord">
+            <input type="text" id="gameName" placeholder="Username">
+            <br><br><hr><br><br>
+    
+            <div class="Question">
+                <h3>2</h3>
+                <p>How old are you?</p>
+            </div>
+            <input type="number" id="age" placeholder="Your Age">
+            <br><br><hr><br><br>
+    
+            <div class="Question">
+                <h3>3</h3>
+                <p>How often are you online?</p>
+            </div>
+            <input type="text" id="onlineTime" placeholder="e.g., 24/7, 12/7, Weekends only, etc.">
+            <br><br><hr><br><br>
+    
+            <div class="Question">
+                <h3>4</h3>
+                <p>Please explain your availability:</p>
+            </div>
+            <textarea id="onlineExplanation" rows="4" placeholder="Why are you available during this time?"></textarea>
+            <br><br><hr><br><br>
+
+            <div class="Question">
+                <h3>5</h3>
+                <p>Are you a Bedrock player or a Java player?</p>
+            </div>
             <br>
-            <div class="ownlist">
-                <h3 style="text-align: center; font-family: 'Minecraft';">OWNER MIKIRA MC</h3>
-                <div class="owner">
-                    <img src="https://minotar.net/helm/zenlen/600.png" width="50px">
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <p style="font-size: 24px;">zenlendy2U</p>
-                        <p>Java Edition</p>
-                    </div>
-                </div>
+            <select id="platform">
+                <option value="">Select...</option>
+                <option value="Bedrock">Bedrock</option>    
+                <option value="Java">Java</option>
+            </select>
+            <br><br><br><hr><br><br>
+
+            <div class="Question">
+                <h3>6</h3>
+                <p>What is your phone number?</p>
             </div>
-        </div>
-        <br><br>
-        <div class="category">
-            <a href="store">
-                <div class="cbg">
-                    <img style="border-radius: 15px;" src="https://muxcraft.eu/images/shop.png" width="250px">
-                </div>
-            </a>
-            <a href="register" style="text-decoration: none;">
-                <div class="cbg">
-                    <img style="border-radius: 15px;" src="https://attic.sh/f1nuxbf70xerfxv6lkcccwvblpjd" width="230px">
-                    <p style="text-align: center; color: black;text-decoration: none;font-size: 20px;">REGISTER HELPER</p>
-                </div>
-            </a>
-        </div>
-        <br><br><br>
-    </div>
-    <br>
-    <div>
-        <div>
-            <div id="main">
-                <p style="text-align: center;font-size: 40px;">Mikita Rules</p>
-                <br>
-                <div id="rules">
-                    <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><strong>Client Rules</strong><br>
-                        • No Hacked Clients <br>
-                        • No Movement Mods <br>
-                        • No Inventory Mod <br>
-                        • No Health Indicators <br>
-                        • No Radar <br>
-                        • No Freecam <br>
-                        • No Auto Place <br>
-                        • No Harmful Macros or Scripts <br><br>
-                        
-                        <strong>General</strong> <br>
-                        • No Abusing Unintentional Bugs <br>
-                        • No Attempted Duplicating <br>
-                        • No Duplicating Items <br>
-                        • No IRL Trading <br>
-                        • No Cross-Server Trading <br>
-                        • No Finding or Using the Seed <br>
-                        • No Impersonation of Staff <br>
-                        • No Punishment Evasion <br>
-                        • No Lying to Staff Members <br>
-                        • No Doxing, Swatting, or DDosing <br>
-                        • Report all Bugs, Glitches, and Cheaters <br><br>
-                        
-                        <strong>Chat</strong> <br>
-                        • No Spamming & Rioting <br>
-                        • No Harassing & Abusing Others <br>
-                        • No Sharing Others Information <br>
-                        • No Advertising or Promotion <br>
-                        • No Racism, Discrimination or Hate Speech <br>
-                        • No Death Threats & Suicide Encouragement</p>
-                </div>
-                <br><br><br><br><br>
-                <div id="report">
-                    <p style="font-size: 40px; text-align: center;">Create Report</p>
-                    <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
-                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                           You found cheater or else please report to server!
-                        </p>
-                        <br><br><br>
-                        <a style="background-color: rgb(235, 80, 144); text-decoration: none; font-size: 24px; font-family: 'Minecraft'; padding: 15px 25px; border-radius: 20px; color: rgb(255, 255, 255);" href="report">
-                            Create
-                        </a>
-                    </div>
-                </div>
+            <input type="text" id="phone" placeholder="Your Phone Number">
+            <br><br><hr><br><br>
+    
+            <div class="Question">
+                <h3>7</h3>
+                <p>Tell us about yourself:</p>
             </div>
-        </div>
+            <textarea id="aboutYourself" rows="4" placeholder="Share some information about yourself..."></textarea>
+            <br><br><hr><br><br>
+
+            <input type="submit" value="Submit" id="submit">
+            <br><br>
+        </form>
     </div>
-    <br><br><br>
-    <br><br><br>
-    <hr>
+    <br><br>
     <footer>
         <div>
             <p style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; font-weight: 600;">Copyright © 2024 Mikita Mc Network. All rights reserved.</p>
         </div>
     </footer>
-    <hr>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/register.js"></script>
 <script>
     let url = "mikitamc.ink";
     $(document).ready(() => {
@@ -223,4 +202,3 @@
     }
 </script>
 </body>
-</html>
