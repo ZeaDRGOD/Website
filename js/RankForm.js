@@ -192,7 +192,7 @@ document.getElementById('server').addEventListener('change', function() {
             { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
             { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $50', price: '$50' }
         ];
-    } else if (server === 'BoxPvP') {
+    } else if (server === 'Kingdom') {
         ranks = [
             { value: 'VIP', text: 'VIP | $5', price: '$5' },
             { value: 'MVP', text: 'MVP | $10', price: '$10' },
