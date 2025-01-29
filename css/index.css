@@ -54,6 +54,17 @@ body {
 
 .logo img {
     width: 350px;
+    position: relative;
+    animation: moveUpDown 2s ease-in-out infinite alternate;
+}
+
+@keyframes moveUpDown {
+    0% {
+        top: -10px;
+    }
+    100% {
+        top: 10px;
+    }
 }
 
 .info svg {
@@ -173,12 +184,12 @@ body {
 
 .category {
     left: 10px;
-    margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 50px;
+    padding: 50px;
 }
 
 .cbg {

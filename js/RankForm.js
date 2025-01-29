@@ -190,15 +190,18 @@ document.getElementById('server').addEventListener('change', function() {
             { value: 'EPIC', text: 'EPIC | $15', price: '$15' },
             { value: 'MIKITA', text: 'MIKITA | $20', price: '$20' },
             { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
-            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $50', price: '$50' }
+            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' },
+            { value: 'INFINITY MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' }
         ];
-    } else if (server === 'Kingdom') {
+    } else if (server === 'BoxPvP') {
         ranks = [
             { value: 'VIP', text: 'VIP | $5', price: '$5' },
             { value: 'MVP', text: 'MVP | $10', price: '$10' },
             { value: 'EPIC', text: 'EPIC | $15', price: '$15' },
             { value: 'MIKITA', text: 'MIKITA | $20', price: '$20' },
-            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $25', price: '$25' }
+            { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
+            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' },
+            { value: 'INFINITY MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' }
         ];
     }
 
