@@ -12,6 +12,11 @@
     <meta property="og:type" content="website" />
 
     <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
     <link rel="icon" href="img/logo.png">
     <link rel="stylesheet" href="css/index.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -20,19 +25,18 @@
 </head>
 <body>
     <header>
-        <head>
-            <div class="head">
-                <ul>
-                    <a href="#" style="text-decoration: none; color: black;"><li>Home</li></a>
-                    <a href="#report" style="text-decoration: none; color: black;"><li>Report</li></a>
-                    <li class="btntop">Vote</li>
-                    <a href="#main" style="text-decoration: none; color: black;"><li>Rules</li></a>
-                    <a href="store" style="text-decoration: none; color: black;"><li>Store</li></a>
-                </ul>
-            </div>
-        </head>
+        <div class="head">
+            <div class="hamburger">☰</div>
+            <ul>
+                <li><a href="#" style="text-decoration: none; color: black;">Home</a></li>
+                <li><a href="#report" style="text-decoration: none; color: black;">Report</a></li>
+                <li class="btntop"><a href="https://minecraft.buzz/server/12682">Vote</a></li>
+                <li><a href="#main" style="text-decoration: none; color: black;">Rules</a></li>
+                <li><a href="store" style="text-decoration: none; color: black;">Store</a></li>
+            </ul>
+        </div>
     </header>
-    <div class="banner">
+    <div class="banner" style="background-image: url(img/banner.png);">
         <div class="info" onclick="copyServerIP()" style="cursor: pointer;">
             <div class="Text">
                 <div class="infoText">
@@ -41,7 +45,7 @@
                         <p id="status"></p>
                     </p>
                 </div>
-                <h4 style="color: rgb(185, 185, 185); filter: drop-shadow(0px);">mikitamc.ink</h4>
+                <h4 style="color: rgb(185, 185, 185); filter: drop-shadow(0px); font-weight: 10; font-size: 14px; font-family: minecraftia;">MIKITAMC.ink</h4>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m2 4v4h4v2H8v6h2v-2h4v2h2v-6h-2v-2h4V6h-4v4h-4V6z"/></svg>
         </div>
@@ -54,7 +58,7 @@
                 <div class="infoText">
                     <p>THE DISCORD SERVER</p>
                 </div>
-                <h4 style="color: rgb(185, 185, 185); filter: drop-shadow(0px);">JOIN OUR DISCORD NOW</h4>
+                <h4 style="color: rgb(185, 185, 185); filter: drop-shadow(0px); font-weight: 10; font-size: 14px; font-family: minecraftia;">JOIN OUR DISCORD NOW</h4>
             </div>
         </div>
     </div>
@@ -66,7 +70,7 @@
                 <div class="infoText">
                     <p>THE DISCORD SERVER</p>
                 </div>
-                <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 10px;">JOIN OUR DISCORD NOW</h4>
+                <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 8px; font-family: minecraftia;">JOIN OUR DISCORD NOW</h4>
             </div>
         </div>
         <div class="info2" onclick="copyServerIP()" style="cursor: pointer;">
@@ -78,82 +82,196 @@
                         <p id="status2"></p>
                     </p>
                 </div>
-                <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 10px;">MIKITAMC.INK</h4>
+                <h4 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 8px; font-family: minecraftia;">MIKITAMC.ink</h4>
             </div>
         </div>
     </div>
-    <div style="display: flex;flex-wrap: wrap;position: relative;gap: 20%;justify-content: center;flex-direction: column;">
-        <div class="server" >
+
+    <!-- OWNER LIST -->
+
+    <div class="server" >
+        <div data-aos="fade-up" data-aos-duration="1000" class="ownlist">
+            <p class="title" style="padding: 10px 0px; text-align: center; color: white;">
+                <span style="
+                    background: linear-gradient(to right, #A700FF, #FF00E6);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">STAFF MIKITA MC</span>
+            </p>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white;">List of staff server in mikita mc network!</p>
             <br>
-            <div data-aos="fade-up" data-aos-duration="1000" class="ownlist">
-                <h3 style="text-align: center; font-family: 'Minecraft';">OWNER MIKIRA MC</h3>
+            <div>
                 <div class="owner">
-                    <img src="https://minotar.net/helm/zenlen/600.png" width="50px">
+                    <img src="https://minotar.net/helm/zenlendy2U/600.png" width="50px">
                     <div style="display: flex; flex-direction: column; align-items: center;">
-                        <p style="font-size: 24px;">zenlendy2U</p>
-                        <p>Java Edition</p>
+                        <p style="font-size: 14px; font-family: minecraftia;">zenlendy2U</p>
+                        <p>Owner | Java Edition</p>
+                    </div>
+                </div>
+                <div class="owner">
+                    <img src="https://minotar.net/helm/L4oySt0rm/600.png" width="50px">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <p style="font-size: 14px; font-family: minecraftia;">L4oySt0rm</p>
+                        <p>Admin | Java Edition</p>
                     </div>
                 </div>
             </div>
         </div>
-        <br><br>
-        <div class="category">
-            <a href="store">
-                <div data-aos="fade-left" class="cbg">
-                    <img style="border-radius: 15px;" src="https://muxcraft.eu/images/shop.png" width="250px">
-                </div>
-            </a>
+    </div>
+    <br><br>
+    <br>
+    <div id="bg1" style="background-image: url(img/new-banne.png);">
+        <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; padding-top: 25px;">
+            <p class="title" style="padding: 10px 0px; text-align: center; color: white;">
+                Mikita <span style="
+                    background: linear-gradient(to right, #ffd700, #faf5f5);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">NEW</span>
+            </p>
+            <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white;">Check out what's new!</p>
+        </div>
+        <div>
+            <div class="category">
+                <a href="store">
+                    <div data-aos="fade-up"
+                    data-aos-anchor-placement="top-bottom" class="cbg">
+                        <img style="border-radius: 15px;" src="img/shop.png" width="250px">
+                        <div id="cd">
+                            <p class="cdtitle"><span style="
+                                background: linear-gradient(to right, #ff9900, #e9fa00);
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent; font-family: 'Minecraftia', sans-serif; font-weight: 800;">STORE</span></p>
+                            <p style="font-family: 'Minecraftia'; color: white;">Click to go store.</p>    
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
         <br><br><br>
     </div>
-    <br>
-    <div>
-        <div>
-            <div id="main">
-                <p style="text-align: center;font-size: 40px;">Mikita Rules</p>
-                <br>
-                <div data-aos="fade-right" id="rules">
-                    <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><strong>Client Rules</strong><br>
-                        • No Hacked Clients <br>
-                        • No Movement Mods <br>
-                        • No Inventory Mod <br>
-                        • No Health Indicators <br>
-                        • No Radar <br>
-                        • No Freecam <br>
-                        • No Auto Place <br>
-                        • No Harmful Macros or Scripts <br><br>
-                        
-                        <strong>General</strong> <br>
-                        • No Abusing Unintentional Bugs <br>
-                        • No Attempted Duplicating <br>
-                        • No Duplicating Items <br>
-                        • No IRL Trading <br>
-                        • No Cross-Server Trading <br>
-                        • No Finding or Using the Seed <br>
-                        • No Impersonation of Staff <br>
-                        • No Punishment Evasion <br>
-                        • No Lying to Staff Members <br>
-                        • No Doxing, Swatting, or DDosing <br>
-                        • Report all Bugs, Glitches, and Cheaters <br><br>
-                        
-                        <strong>Chat</strong> <br>
-                        • No Spamming & Rioting <br>
-                        • No Harassing & Abusing Others <br>
-                        • No Sharing Others Information <br>
-                        • No Advertising or Promotion <br>
-                        • No Racism, Discrimination or Hate Speech <br>
-                        • No Death Threats & Suicide Encouragement</p>
+    <br><br>
+    <section id="games">
+        <div class="games-background">
+          <div class="container">
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column; padding-top: 25px;">
+                <p class="title" style="padding: 10px 0px; text-align: center; color: white;">
+                    <span style="
+                        background: linear-gradient(to right, #ffd700, #f9ffc5);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">OUR GAMES</span>
+                </p>
+                <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white;">Check out our games!</p>
+            </div>
+            <br>
+            <div class="swiper games-swiper">
+              <div class="swiper-wrapper games-cards">
+                <div class="swiper-slide active">
+                  <a onclick="copyServerIP()" style="cursor: pointer;">
+                    <img src="https://cdn.discordapp.com/attachments/1285593817717670000/1357752342459584652/AfZLuR6kCbBeAAAAAElFTkSuQmCC.png?ex=67f158e8&is=67f00768&hm=f6e52f67bb89de82303ceb0dc1562f7f841dee72ec73494abaab5c00c63110ce&" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3><span style="
+                        background: linear-gradient(to right, #1abec1, #d2e63d);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">ECONOMY SMP</span></h3>
+                    <h4>ECONOMY SMP | Developed by MikitaMC</h4>
+                  </div>
                 </div>
-                <br><br><br><br><br>
-                <div id="report">
-                    <p style="font-size: 40px; text-align: center;">Create Report</p>
-                    <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+                <div class="swiper-slide">
+                  <a onclick="copyServerIP()" style="cursor: pointer;">
+                    <img src="https://cdn.discordapp.com/attachments/1285593817717670000/1357257999529283606/boxpvp.png?ex=67f0de03&is=67ef8c83&hm=b2d6fab4e56cd9a9e983f42a2fde92b225134752ee57b9c7e6ee0d636cf21134&" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3><span style="
+                        background: linear-gradient(to right, #6b00c2, #c000d1);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">BOXPVP</span></h3>
+                    <h4>BOXPVP | Developed by Zenlendy2U</h4>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <a onclick="copyServerIP()" style="cursor: pointer;">
+                    <img src="https://cdn.discordapp.com/attachments/1285593817717670000/1357341839073476878/bedwars.png?ex=67f12c18&is=67efda98&hm=4b18c0139bb896affc094c5cd257868d8cf1367ebca8ee945d79bac35b0105ab&" draggable="false" alt="" />
+                  </a>
+                  <div class="slider-item-detail">
+                    <h3><span style="
+                        background: linear-gradient(to right, #fff000, #fff000);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;">BEDWARS</span></h3>
+                    <h4>BEDWRAS | Developed by L4oySt0rm</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="games-swiper-button-prev"><i class="bx bx-chevron-left"></i></div>
+              <div class="games-swiper-button-next"><i class="bx bx-chevron-right"></i></div>
+            </div>
+            <br>
+          </div>
+        </div>
+    </section>
+    <br><br><br>
+    <div id="bg1" style="background-image: url(img/discord-banner.png);">
+        <br>
+        <div>
+            <div id="discord">
+                <div style="padding: 10px 35px;">
+                    <div data-aos="fade-right" data-aos-delay="50">
+                        <p class="title" style="padding: 10px 0px; color: white;">
+                THE Mikita <span style="
+                    background: linear-gradient(to right, #7289da, #003780);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">DISCORD</span>
+            </p>
+                    </div>
+                    <div data-aos="fade-right" data-aos-delay="100">
                         <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                           You found cheater or else please report to server!
+                            Join our Discord for announcements and updates! 
+                            <br><br>
+                            Join our community and connect with other players!
+                            Receive immediate updates for news, get help and
+                            dedicated support, and link your Minecraft account
+                            to access even more features on the server!
+                            <br>
                         </p>
-                        <br><br><br>
-                        <a data-aos="fade-left" style="background-color: rgb(235, 80, 144); text-decoration: none; font-size: 24px; font-family: 'Minecraft'; padding: 15px 25px; border-radius: 20px; color: rgb(255, 255, 255);" href="report">
-                            Create
+                    </div>
+                    <br><br>
+                    <div data-aos="fade-right" data-aos-delay="150">
+                        <a href="https://discord.gg/n6ew7mfj3J" style="text-decoration: none;">
+                            <button id="discord-bnt">Join Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="#ffffff" d="M524.5 69.8a1.5 1.5 0 0 0 -.8-.7A485.1 485.1 0 0 0 404.1 32a1.8 1.8 0 0 0 -1.9 .9 337.5 337.5 0 0 0 -14.9 30.6 447.8 447.8 0 0 0 -134.4 0 309.5 309.5 0 0 0 -15.1-30.6 1.9 1.9 0 0 0 -1.9-.9A483.7 483.7 0 0 0 116.1 69.1a1.7 1.7 0 0 0 -.8 .7C39.1 183.7 18.2 294.7 28.4 404.4a2 2 0 0 0 .8 1.4A487.7 487.7 0 0 0 176 479.9a1.9 1.9 0 0 0 2.1-.7A348.2 348.2 0 0 0 208.1 430.4a1.9 1.9 0 0 0 -1-2.6 321.2 321.2 0 0 1 -45.9-21.9 1.9 1.9 0 0 1 -.2-3.1c3.1-2.3 6.2-4.7 9.1-7.1a1.8 1.8 0 0 1 1.9-.3c96.2 43.9 200.4 43.9 295.5 0a1.8 1.8 0 0 1 1.9 .2c2.9 2.4 6 4.9 9.1 7.2a1.9 1.9 0 0 1 -.2 3.1 301.4 301.4 0 0 1 -45.9 21.8 1.9 1.9 0 0 0 -1 2.6 391.1 391.1 0 0 0 30 48.8 1.9 1.9 0 0 0 2.1 .7A486 486 0 0 0 610.7 405.7a1.9 1.9 0 0 0 .8-1.4C623.7 277.6 590.9 167.5 524.5 69.8zM222.5 337.6c-29 0-52.8-26.6-52.8-59.2S193.1 219.1 222.5 219.1c29.7 0 53.3 26.8 52.8 59.2C275.3 311 251.9 337.6 222.5 337.6zm195.4 0c-29 0-52.8-26.6-52.8-59.2S388.4 219.1 417.9 219.1c29.7 0 53.3 26.8 52.8 59.2C470.7 311 447.5 337.6 417.9 337.6z"/></svg></button>
+                        </a>
+                    </div>
+                </div>
+                <img src="img/discord-a.png">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br><br>
+    <div id="bg1" style="background-image: url(img/voicechat.png);">
+        <br>
+        <div>
+            <div id="discord">
+                <div>
+                    <img src="img/voicechat-a.png" width="400px">
+                </div>
+                <div style="padding: 10px 35px;">
+                    <div data-aos="fade-right" data-aos-delay="50">
+                        <p class="title" style="padding: 10px 0px; color: white;"><span style="
+                    background: linear-gradient(to right, #47ffff, #ff53e8);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">Simple Voice Chat</span></p>
+                    </div>
+                    <div data-aos="fade-right" data-aos-delay="100">
+                        <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                            Server now is support Simple Voice Chat mod! 
+                            <br><br>
+                            You can use Simple Voice Chat on the server by simply joining it, you will automatically connect to the voice chat server! Once you're in, you'll be able to communicate with other players in real-time, enhancing your gaming experience and fostering teamwork. Enjoy seamless conversations as you strategize and collaborate with your friends!
+                            <br>
+                        </p>
+                    </div>
+                    <br><br>
+                    <div data-aos="fade-right" data-aos-delay="150">
+                        <a href="https://modrinth.com/plugin/simple-voice-chat" style="text-decoration: none; display: flex; align-content: center;">
+                            <button id="discord-bnt">Download<i class="fa-solid fa-download"></i></button>
                         </a>
                     </div>
                 </div>
@@ -161,65 +279,65 @@
         </div>
     </div>
     <br><br><br>
-    <br><br><br>
-    <hr>
+    <section id="sponsor" style="background-color: #131417;">
+        <div class="sponsor-background">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 justify-content-center text-center">
+                <img class="sponsor-image" src="https://pngimg.com/d/minecraft_PNG71.png" draggable="false" alt="" />
+              </div>
+              <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                <h4 style="color: white;" class="section-title">BECOME A PARTNER TODAY TO OBTAIN ADVANTAGES <strong><span style="
+                    background: linear-gradient(to right, #fbff00, #ffc524);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;">OUR PARTNERS</span></strong></h4>
+                <div>
+                  <p style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white;">
+                    If you are interested in a partnership with Mikitamc, please contact us. We would be happy to respond to your inquiry. We only require that you have at least 400 online members on Discord, a total of 3,000 Discord members, and a server with around 100 players.
+                  </p>
+                  <br>
+                  <a href="https://discord.gg/n6ew7mfj3J" style="text-decoration: none; display: flex; align-content: center;">
+                    <button id="discord-bnt">Contact Us<i class="fa-solid fa-envelope"></i></button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper sponsor-swiper">
+              <div class="swiper-wrapper sponsor-cards customer-logos text-center">
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358052821454553271/71141ef07a98ff5eb8421bf3eafea0c37c09aa83.png?ex=67f270c0&is=67f11f40&hm=f993f50f97458c0a5a7c32cf0303aedd711cbbc41c0a74ad7de9fdf9e21ac889&" draggable="false" alt="play.kakaomc.net" /></div>
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358051617349435442/raw.png?ex=67f26fa0&is=67f11e20&hm=52222f708b37b7919132b13db0674e8451ceb4ea1c95e6c22f39c82e59f7de15&" draggable="false" alt="Partner Logo" /></div>
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358051617349435442/raw.png?ex=67f26fa0&is=67f11e20&hm=52222f708b37b7919132b13db0674e8451ceb4ea1c95e6c22f39c82e59f7de15&" draggable="false" alt="Partner Logo" /></div>
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358051617349435442/raw.png?ex=67f26fa0&is=67f11e20&hm=52222f708b37b7919132b13db0674e8451ceb4ea1c95e6c22f39c82e59f7de15&" draggable="false" alt="Partner Logo" /></div>
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358051617349435442/raw.png?ex=67f26fa0&is=67f11e20&hm=52222f708b37b7919132b13db0674e8451ceb4ea1c95e6c22f39c82e59f7de15&" draggable="false" alt="Partner Logo" /></div>
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358051617349435442/raw.png?ex=67f26fa0&is=67f11e20&hm=52222f708b37b7919132b13db0674e8451ceb4ea1c95e6c22f39c82e59f7de15&" draggable="false" alt="Partner Logo" /></div>
+                <div class="swiper-slide sponsor-card"><img src="https://cdn.discordapp.com/attachments/1285593817717670000/1358051617349435442/raw.png?ex=67f26fa0&is=67f11e20&hm=52222f708b37b7919132b13db0674e8451ceb4ea1c95e6c22f39c82e59f7de15&" draggable="false" alt="Partner Logo" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
     <footer>
-        <div>
-            <p style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; font-weight: 600;">Copyright © 2024 Mikita Mc Network. All rights reserved.</p>
+        <div class="footer">
+            <div id="left-ft" style="max-width: 50%; display: flex; align-items: center; gap: 20px;">
+                <img src="img/logo.png">
+                <p>©2025 Mikita Server. All Rights Reserved.</p>
+                <p>Not an official Minecraft product. Not approved by or associated with Mojang or Microsoft.</p>
+            </div>
+            <div class="app" style="max-width: 50%;">
+                <a href="https://discord.gg/n6ew7mfj3J"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.tiktok.com/@zendyxyouhrr"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
         </div>
     </footer>
-    <hr>
+    <br>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-<script>
-    let url = "mikitamc.ink";
-    $(document).ready(() => {
-        $.getJSON("https://api.mcsrvstat.us/1/" + url, (status) => {
-            if (status.debug.ping) {
-                $("#status").append("ONLINE");
-                $("#status2").append("PLAYER");
-                $("#players_num").append(status.players.online)
-                $("#players_num2").append(status.players.online)
-            } else {
-                $("#status").append("OFFLINE");
-                $("#status2").append("OFFLINE");
-                $("#players_num").append("0");
-                $("#players_num2").append("0");
-            }
-            $("body").fadeIn(2000);
-        });
-    });
-    function copyServerIP() {
-        // Server IP to copy
-        var serverIP = "mikitamc.ink:19213"; // Replace with your server IP
-
-        // Create a temporary input element
-        var tempInput = document.createElement("input");
-        tempInput.value = serverIP;
-        document.body.appendChild(tempInput);
-
-        // Select the text in the input element
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); // For mobile devices
-
-        // Copy the selected text to the clipboard
-        document.execCommand("copy");
-
-        // Remove the temporary input element
-        document.body.removeChild(tempInput);
-
-        // Show alert message
-        alert("Server IP copied to clipboard!");
-    }
-    function openURL() {
-        // Open a new URL in a new tab/window
-        window.open("https://discord.gg/n6ew7mfj3J", "_blank"); // Replace with your desired URL
-    }
-</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://kit.fontawesome.com/9fbc0d899d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
