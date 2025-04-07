@@ -2,7 +2,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
     event.preventDefault();
 
     const name = document.getElementById('gameName');
-    const discord = document.getElementById('discord');
+    const discord = document.getElementById('dc');
     const age = document.getElementById('age');
     const freetime = document.getElementById('onlineTime');
     const onlineExplanation = document.getElementById('onlineExplanation');
