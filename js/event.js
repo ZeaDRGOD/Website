@@ -104,47 +104,21 @@ document.addEventListener('keydown', function(e) {
     // Ctrl+S (or Cmd+S on Mac)
     if ((e.ctrlKey || e.metaKey) && e.key === 's') {
         e.preventDefault();
-        e.stopPropagation(); // Stop event from bubbling up
-        Swal.fire({
-            title: 'Error',
-            text: shitTalk[Math.floor(Math.random() * shitTalk.length)],
-            icon: 'error',
-            allowOutsideClick: false, // Prevent closing via outside click
-            allowEscapeKey: false,    // Prevent closing via escape
-            didOpen: () => {
-                // Ensure focus stays on alert to trap further shortcuts
-                Swal.getPopup().focus();
-            }
-        });
+        e.stopPropagation();
     }
     // Ctrl+C (or Cmd+C on Mac)
     if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
         e.preventDefault();
-        Swal.fire({
-            title: 'Error',
-            text: shitTalk[Math.floor(Math.random() * shitTalk.length)],
-            icon: 'error'
-        });
     }
     // Ctrl+U (or Cmd+U on Mac) - view source
     if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
         e.preventDefault();
-        Swal.fire({
-            title: 'Error',
-            text: shitTalk[Math.floor(Math.random() * shitTalk.length)],
-            icon: 'error'
-        });
     }
 }, true); // Use capture phase to catch event early
 
 // Disable right-click context menu
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
-    Swal.fire({
-        title: 'Nope',
-        text: shitTalk[Math.floor(Math.random() * shitTalk.length)],
-        icon: 'warning'
-    });
 });
 
 // Disable text selection
