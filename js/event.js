@@ -99,32 +99,55 @@ const shitTalk = [
     "You’re a miss with no hit!"
 ];
 
-// Global keydown listener to catch Ctrl+S everywhere
-document.addEventListener('keydown', function(e) {
-    // Ctrl+S (or Cmd+S on Mac)
-    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-        e.preventDefault();
-        e.stopPropagation();
+// Self-executing function to encapsulate and obscure code
+(function() {
+  // Global keydown listener in capture phase
+  document.addEventListener('keydown', function(e) {
+    // Block Ctrl+S/Cmd+S, Ctrl+C/Cmd+C, Ctrl+U/Cmd+U
+    if ((e.ctrlKey || e.metaKey) && ['s', 'c', 'u'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+      e.stopPropagation();
     }
-    // Ctrl+C (or Cmd+C on Mac)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
-        e.preventDefault();
+    // Block F12, Ctrl+Shift+I (DevTools), Ctrl+Shift+C (Inspect Element)
+    if (e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && ['i', 'c'].includes(e.key.toLowerCase()))) {
+      e.preventDefault();
+      e.stopPropagation();
     }
-    // Ctrl+U (or Cmd+U on Mac) - view source
-    if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
-        e.preventDefault();
-    }
-}, true); // Use capture phase to catch event early
+  }, true);
 
-// Disable right-click context menu
-document.addEventListener('contextmenu', function(e) {
+  // Disable right-click context menu
+  document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
-});
+  });
 
-// Disable text selection
-document.addEventListener('selectstart', function(e) {
+  // Disable text selection
+  document.addEventListener('selectstart', function(e) {
     e.preventDefault();
-});
+  });
+
+  // Detect DevTools (heuristic based on window size)
+  let devToolsDetected = false;
+  const sizeThreshold = 150;
+  setInterval(() => {
+    if (!devToolsDetected && 
+        (window.outerWidth - window.innerWidth > sizeThreshold || 
+         window.outerHeight - window.innerHeight > sizeThreshold)) {
+      devToolsDetected = true;
+      document.body.innerHTML = atob('PGRpdiBzdHlsZT0idGV4dC1hbGlnbjpjZW50ZXI7cGFkZGluZzo1MHB4Ij48aDE+Tm8gUGVla2luZyE8L2gxPjxwPlBsZWFzZSByZXNwZWN0IHRoZSBwcml2YWN5IG9mIHRoaXMgcGFnZS48L3A+PC9kaXY+');
+    }
+  }, 500);
+
+  // Load content dynamically (example: "Protected Content")
+  window.onload = function() {
+    if (!devToolsDetected) {
+      document.body.innerHTML = atob('PGgxPlByb3RlY3RlZCBDb250ZW50PC9oMT48cD5UaGlzIGNvbnRlbnQgaXMgc2FmZSBmcm9tIGNhc3VhbCBpbnNwZWN0aW9uLjwvcD4=');
+    }
+  };
+
+  // Obfuscate with Base64-encoded eval (minimal example)
+  eval(atob('Y29uc29sZS5sb2coJ1Byb3RlY3Rpb24gYWN0aXZlJyk7'));
+})();
 
 // Disable drag and drop of images
 document.addEventListener('dragstart', function(e) {
