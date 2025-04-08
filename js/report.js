@@ -41,7 +41,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
 
         const submissionCount = parseInt(localStorage.getItem('submissionCount')) || 0;
 
-        if (submissionCount < 1000) {
+        if (submissionCount < 1) {
             localStorage.setItem('submissionCount', submissionCount + 1);
             const submitButton = document.getElementById('submit');
             submitButton.disabled = true;
