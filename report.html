@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta property="og:title" content="ERROR 404" />
-    <meta property="og:description" content="Page not found" />
+    <meta property="og:title" content="Report Form" />
+    <meta property="og:description" content="Form to allow you to report." />
     <meta property="og:image" content="https://store.mikitamc.ink/img/logo.png" />
-    <meta property="og:url" content="https://store.mikitamc.ink/404" />
+    <meta property="og:url" content="https://store.mikitamc.ink/register" />
     <meta property="og:type" content="website" />
-
+    
     <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
@@ -19,9 +19,24 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" />
     <link rel="icon" href="../img/logo.png">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/report.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://dipped.dev/static/plugins/discordwidget/index.js"></script>
     <title>HOME | MIKITA MC</title>
+    <style>
+        h3 {
+            text-align: center;
+            color: #ffffff;
+            padding: 10px;
+            background: rgb(104,0,255);
+            background: linear-gradient(43deg, rgba(104,0,255,1) 0%, rgba(255,0,0,1) 100%);
+            border-radius: 82% 18% 35% 65% / 54% 52% 48% 46%;
+            margin: 0;
+            margin-right: 5px;
+            font-size: 16px;
+            font-weight: 800;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -86,11 +101,65 @@
             </div>
         </div>
     </div>
-    <br>
-    <h1 style="text-align: center; font-family: 'Minecraft', sans-serif;">ERROR 404</h1>
-    <h3 style="text-align: center; font-family: 'Minecraftia', sans-serif;">Page not found</h3>
-    <br><br><br>
-    <br><br><br>
+
+    <div data-aos="fade-up" data-aos-duration="1000" class="form-container">
+        <h2 style="font-family: 'Minecraftia';">Report Form</h2>
+        <form id="register">
+            <br><hr><br>
+            <div class="Question">
+                <h3>1</h3>
+                <p>What is your game name and target name?</p>
+            </div>
+            <input type="text" id="player" placeholder="Your Username">
+            <input type="text" id="target" placeholder="Report Username">
+            <br><br><hr><br><br>
+
+            <div class="Question">
+                <h3>2</h3>
+                <p>What your report type?</p>
+            </div>
+            <br>
+            <select id="report-type">
+                <option value="">Select...</option>
+                <option value="Hacker">Hacker</option> 
+                <option value="Scaming">Scaming</option> 
+                <option value="Abuse Rules">Abuse Rules</option> 
+                <option value="Chat Promote">Chat Promote</option> 
+                <option value="Bug & Glitch">Bug & Glitch</option>
+            </select>
+            <br><br><br><hr><br><br>
+    
+            <div class="Question">
+                <h3>3</h3>
+                <p>You have a message?</p>
+            </div>
+            <textarea id="aboutYourself" rows="4" placeholder="Message..."></textarea>
+            <br><br><hr><br><br>
+
+            <div class="Question">
+                <h3>4</h3>
+                <p>Drop your proof!</p>
+            </div>
+            <br>
+            <div id="proof">
+                <div class="upload-container" id="upload-container">
+                    <p>Drop file here or click to upload</p>
+                    <button type="button" id="upload-btn">Choose File</button>
+                    <input type="file" id="image" name="image" onchange="showImagePreview(this.files[0])" accept="image/*,video/*" style="display: none;">
+                </div>
+                <br>
+                <div id="media-preview-container" style="margin-top: 10px;">
+                    <img id="image-preview" style="display: none; max-width: 300px; border-radius: 5px;" />
+                    <video id="video-preview" style="display: none; max-width: 300px; border-radius: 5px;" controls></video>
+                </div>
+            </div>
+            <br><br><hr><br><br>
+            
+            <input type="submit" value="Submit" id="submit">
+            <br><br>
+        </form>
+    </div>
+    <br><br>
     <footer>
         <div class="footer">
             <div id="left-ft" style="max-width: 50%; display: flex; align-items: center; gap: 20px;">
@@ -104,12 +173,81 @@
             </div>
         </div>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://kit.fontawesome.com/9fbc0d899d.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="../js/index.js"></script>
-    <script src="../js/event.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://kit.fontawesome.com/9fbc0d899d.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="js/report.js"></script>
+<script src="js/index.js"></script>
+<script src="../js/event.js"></script>
+<script>
+    function openURL() {
+        // Open a new URL in a new tab/window
+        window.open("https://discord.gg/n6ew7mfj3J", "_blank"); // Replace with your desired URL
+    }
+
+    const uploadContainer = document.getElementById('upload-container');
+    const fileInput = document.getElementById('image');
+    const uploadBtn = document.getElementById('upload-btn');
+    const imagePreview = document.getElementById('image-preview');
+
+    uploadBtn.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        if (file) {
+            showImagePreview(file);
+        }
+    });
+
+    uploadContainer.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadContainer.classList.add('dragover');
+    });
+
+    uploadContainer.addEventListener('dragleave', () => {
+        uploadContainer.classList.remove('dragover');
+    });
+
+    uploadContainer.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadContainer.classList.remove('dragover');
+
+        const file = e.dataTransfer.files[0];
+        if (file) {
+            fileInput.files = e.dataTransfer.files;  // Set file input with the dropped file
+            showImagePreview(file);
+        }
+    });
+
+    function showImagePreview(file) {
+        const imagePreview = document.getElementById('image-preview');
+        const videoPreview = document.getElementById('video-preview');
+        
+        imagePreview.style.display = 'none';
+        videoPreview.style.display = 'none';
+        
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            const fileType = file.type.toLowerCase();
+            
+            if (fileType.startsWith('image/')) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block';
+            } 
+            else if (fileType.startsWith('video/')) {
+                videoPreview.src = e.target.result;
+                videoPreview.style.display = 'block';
+            }
+        };
+        
+        reader.readAsDataURL(file);
+    }
+</script>
 </body>
-</html>
