@@ -81,7 +81,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
         phone: phone.value,
     };
 
-    const webhookURL = 'https://discord.com/api/webhooks/1307592438218494133/eqPVJwJ82g0QdyYNekwfkxkHi_pMpgIuZSUtV_xJ2Eanc1htQbcc3gI29KA-V9LXBqSM';
+    const webhookURL = 'https://discord.com/api/webhooks/1360192282179141864/FNEdl86Tf1pimBxRXrbMIK0rh1vfVxmNwr3_LNroiBrQcEAH8Nn2CyC9k1aJ0M2PvFeS';
     const BuyDate = new Date().toLocaleDateString();
 
     const embedData = {
