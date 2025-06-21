@@ -100,7 +100,7 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
     formData.append('rank', document.getElementById('rank').value);
     formData.append('image', document.getElementById('image').files[0]);
 
-    const webhookURL = 'https://discord.com/api/webhooks/1259282063614283889/sRgAA1Hfra4PN2-rjbZWy0jpZ2gGT_kaF1u76Ij0ZBzDSi24Mwm32GriTJab2tUWhCtE';
+    const webhookURL = getWebhook();
 
     function sendImage(imageFile) {
         const formData = new FormData();
@@ -141,7 +141,7 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
             };
             const payload = {
                 embeds: [embedData],
-                content: '>>> ## **New! Rank Submit** \n\n<@831061671514341407> Check merl ke pay lui jol nv ber jol hz dak rank oy ke tv cmd nis \n ```/lp user ' + formData.get('name') + ' parent addtemp ' + formData.get('rank') + ' 30d```' 
+                content: '>>> ## **New! Rank Submit** \n\n<@831061671514341407> Check! \n ```/lp user ' + formData.get('name') + ' parent addtemp ' + formData.get('rank') + ' 30d```' 
             };
 
             return fetch(webhookURL, {
@@ -183,7 +183,17 @@ document.getElementById('server').addEventListener('change', function() {
     rankSelect.disabled = false;
 
     let ranks;
-    if (server === 'Survival') {
+    if (server === 'Economy SMP') {
+        ranks = [
+            { value: 'VIP', text: 'VIP | $5', price: '$5' },
+            { value: 'MVP', text: 'MVP | $10', price: '$10' },
+            { value: 'EPIC', text: 'EPIC | $15', price: '$15' },
+            { value: 'MIKITA', text: 'MIKITA | $20', price: '$20' },
+            { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
+            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' },
+            { value: 'INFINITY MIKITA', text: 'INFINITY MIKITA | $50', price: '$50' }
+        ];
+    } else if (server === 'Plots City') {
         ranks = [
             { value: 'VIP', text: 'VIP | $5', price: '$5' },
             { value: 'MVP', text: 'MVP | $10', price: '$10' },

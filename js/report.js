@@ -70,7 +70,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
         proof: image.files[0] // File object (image or video)
     };
 
-    const webhookURL = 'https://discord.com/api/webhooks/1359054561314209802/ls1ACDo83YynLbrLin8c3EUmMe0f36x-IhUYzOGVWIz5_lSRo3O_sYM9yLqd7vprYViV';
+    const webhookURL = getReportWebhook();
 
     // Combine report and proof into one message
     const combinedMessage = `# 🌟 **New Report Submitted** 🌟  

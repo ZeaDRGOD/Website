@@ -1,50 +1,59 @@
+// Basic protection: right-click + devtools shortcut blocking
 (function() {
   document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
   });
 
   document.addEventListener('keydown', function(e) {
-      // Block all Ctrl+ combinations
-      if (e.ctrlKey) {
+      const allowedCtrlKeys = [
+          'Delete',
+          'Backspace',
+          'ArrowLeft',
+          'ArrowRight',
+          'a',
+          'c',
+          'v',
+          'x',
+          'z',
+          'y'
+      ];
+
+      // Block F12
+      if (e.key === 'F12') {
           e.preventDefault();
           return false;
       }
-      
-      // Additional specific shortcut
-      if (e.key === 'F12') {
+
+      // Block Ctrl+ combos unless explicitly allowed
+      if (e.ctrlKey && !allowedCtrlKeys.includes(e.key.toLowerCase())) {
           e.preventDefault();
           return false;
       }
   });
 })();
 
+// DevTools detection – close the page if detected
 (function() {
-  function detectDevTool(allow) {
-      if(isNaN(+allow)) allow = 100;
-      var start = +new Date();
+  function detectDevTools(threshold = 100) {
+      const start = performance.now();
       debugger;
-      var end = +new Date();
-      if(isNaN(start) || isNaN(end) || end - start > allow) {
-          document.body.innerHTML = "<h1>Access Denied</h1><p>DevTools is not allowed on this page.</p>";
+      const end = performance.now();
+
+      if (end - start > threshold) {
+          alert("DevTools detected! Closing page...");
+          window.open('', '_self');
+          window.close();
       }
   }
 
-  // Event listener setup
-  if(window.attachEvent) {
-      if (document.readyState === "complete" || document.readyState === "interactive") {
-          detectDevTool();
-          window.attachEvent('onresize', detectDevTool);
-          window.attachEvent('onmousemove', detectDevTool);
-          window.attachEvent('onfocus', detectDevTool);
-          window.attachEvent('onblur', detectDevTool);
-      } else {
-          setTimeout(argument.callee, 0);
-      }
+  function monitor() {
+      detectDevTools();
+      setInterval(detectDevTools, 1000);
+  }
+
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+      monitor();
   } else {
-      window.addEventListener('load', detectDevTool);
-      window.addEventListener('resize', detectDevTool);
-      window.addEventListener('mousemove', detectDevTool);
-      window.addEventListener('focus', detectDevTool);
-      window.addEventListener('blur', detectDevTool);
+      window.addEventListener('DOMContentLoaded', monitor);
   }
 })();

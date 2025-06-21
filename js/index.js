@@ -111,3 +111,4 @@ function enableScrollX() {
 
 // Disable X scroll on page load
 window.addEventListener('load', disableScrollX);
+
