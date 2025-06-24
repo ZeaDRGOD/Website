@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             phone: phone.value || 'Not provided', // Handle optional phone
         };
 
-        const webhookURL = getWebhookRegister();
+        const webhookURL = "https://discord.com/api/webhooks/1360192282179141864/FNEdl86Tf1pimBxRXrbMIK0rh1vfVxmNwr3_LNroiBrQcEAH8Nn2CyC9k1aJ0M2PvFeS";
 
         const embedData = {
             title: 'Submission Register',
