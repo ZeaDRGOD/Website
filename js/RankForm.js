@@ -9,35 +9,8 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
             title: 'Error',
             text: 'Please upload receipt before submitting.',
             icon: 'error'
-        })
+        });
         return;
-    }
-    
-    function base64Encode(str) {
-        return btoa(unescape(encodeURIComponent(str)));
-    }
-
-    function base64Decode(str) {
-        return decodeURIComponent(escape(atob(str)));
-    }
-
-    function generateFakeWebhook() {
-        const fakeId = Math.random().toString().substring(2, 19); // Generate 17-digit numerical ID
-        const fakeApi = Array.from({ length: 71 }, () => Math.random().toString(36)[2]).join(''); // Generate 71 characters alphanumeric string
-        return `https://discord.com/api/webhooks/${fakeId}/${fakeApi}`;
-    }
-
-    // Function to obfuscate console messages
-    function obfuscateConsole(message, line) {
-        const encodedMessage = base64Encode(message);
-        const noise = generateFakeWebhook();
-        const obfuscatedMessage = `${encodedMessage}${noise}`;
-    }
-
-    function deobfuscateConsole(obfuscatedMessage) {
-        const encodedMessage = obfuscatedMessage.replace(/https:\/\/discord\.com\/api\/webhooks\/[0-9]{19}\/[a-zA-Z0-9]{69}$/, "");
-        const originalMessage = base64Decode(encodedMessage);
-        return originalMessage;
     }
 
     function checkSubmissionLimit() {
@@ -66,32 +39,7 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
         }
     }
 
-    if (!checkSubmissionLimit()) {
-        return;
-    }
-
-    function sendFakeWebhooks(line) {
-        const fakeWebhookURL = generateFakeWebhook();
-        const fakePayload = {
-            content: "This is a fake webhook message to obfuscate the real webhook."
-        };
-
-        return fetch(fakeWebhookURL, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(fakePayload)
-        })
-        .then(response => {
-            if (response.ok) {
-                obfuscateConsole('Fake webhook sent to: ' + fakeWebhookURL, line);
-            } else {
-                throw new Error('Failed to send fake webhook');
-            }
-        })
-        .catch(error => {
-            obfuscateConsole('Error sending fake webhook: ' + error, line);
-        });
-    }
+    if (!checkSubmissionLimit()) return;
 
     const BuyDate = new Date().toLocaleDateString();
     const formData = new FormData();
@@ -103,68 +51,41 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
 
     const webhookURL = getWebhook();
 
-    function sendImage(imageFile) {
-        const formData = new FormData();
-        formData.append('image', imageFile);
+    const embedData = {
+        title: 'Submission Rank',
+        description: '💠 Username: ' + formData.get('name') + '\n' +
+                     '🌌 Player: ' + formData.get('platform') + '\n' +
+                     '💎 Server: ' + formData.get('server') + '\n' +
+                     '💍 Rank: ' + formData.get('rank') + '\n' +
+                     '⌛ Date: ' + BuyDate + '\n',
+        color: 16777215
+    };
 
-        return fetch(webhookURL, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Failed to send image to Discord webhook');
-            }
-        })
-        .then(data => {
-            return data.url;
-        })
-        .catch(error => {
-            obfuscateConsole('Error: ' + error, 145);
-        });
-    }
+    const payload = {
+        embeds: [embedData],
+        content: '>>> ## **New! Rank Submit** \n\n<@831061671514341407> Check! \n ```/lp user ' + formData.get('name') + ' parent addtemp ' + formData.get('rank') + ' 30d```'
+    };
 
-    sendImage(formData.get('image'))
-        .then(function(imageUrl) {
-            const embedData = {
-                title: 'Submission Rank',
-                description: '💠 Username: ' + formData.get('name') + '\n' +
-                            '🌌 Player: ' + formData.get('platform') + '\n' +
-                            '💎 Server: ' + formData.get('server') + '\n' +
-                            '💍 Rank: ' + formData.get('rank') + '\n' +
-                            '⌛ Date: ' + BuyDate + '\n',
-                color: 16777215,
-                image: {
-                    url: imageUrl
-                }
-            };
-            const payload = {
-                embeds: [embedData],
-                content: '>>> ## **New! Rank Submit** \n\n<@831061671514341407> Check! \n ```/lp user ' + formData.get('name') + ' parent addtemp ' + formData.get('rank') + ' 30d```' 
-            };
+    const finalFormData = new FormData();
+    finalFormData.append('payload_json', JSON.stringify(payload));
+    finalFormData.append('file', formData.get('image'));
 
-            return fetch(webhookURL, {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
-            });
-        })
-        .then(response => {
-            if (response.ok) {
-                location.href = '../thankyou';
-            } else {
-                location.href = '../error';
-            }
-        })
-        .catch(error => {
-            obfuscateConsole('Error: ' + error, 145);
-        });
-    
-    for (let i = 0; i < 100; i++) {
-        sendFakeWebhooks(Math.floor(Math.random() * 200) + 1);
-    }
+    fetch(webhookURL, {
+        method: 'POST',
+        body: finalFormData
+    })
+    .then(response => {
+        if (response.ok) {
+            location.href = '../thankyou';
+        } else {
+            console.error('Webhook Error:', response.statusText);
+            location.href = '../error';
+        }
+    })
+    .catch(error => {
+        console.error('Submit Error:', error);
+        location.href = '../error';
+    });
 });
 
 document.getElementById('server').addEventListener('change', function() {
