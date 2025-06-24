@@ -1,3 +1,5 @@
+const discount = 30; // 0% discount by default, set to 20 for 20% discount
+
 document.getElementById('minecraftRankForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -90,7 +92,6 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
             obfuscateConsole('Error sending fake webhook: ' + error, line);
         });
     }
-
 
     const BuyDate = new Date().toLocaleDateString();
     const formData = new FormData();
@@ -185,33 +186,33 @@ document.getElementById('server').addEventListener('change', function() {
     let ranks;
     if (server === 'Economy SMP') {
         ranks = [
-            { value: 'VIP', text: 'VIP | $5', price: '$5' },
-            { value: 'MVP', text: 'MVP | $10', price: '$10' },
-            { value: 'EPIC', text: 'EPIC | $15', price: '$15' },
-            { value: 'MIKITA', text: 'MIKITA | $20', price: '$20' },
-            { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
-            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' },
-            { value: 'INFINITY MIKITA', text: 'INFINITY MIKITA | $50', price: '$50' }
+            { value: 'VIP', text: `VIP | $${(5 * (1 - discount / 100)).toFixed(2)}`, price: `$${(5 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MVP', text: `MVP | $${(10 * (1 - discount / 100)).toFixed(2)}`, price: `$${(10 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'EPIC', text: `EPIC | $${(15 * (1 - discount / 100)).toFixed(2)}`, price: `$${(15 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MIKITA', text: `MIKITA | $${(20 * (1 - discount / 100)).toFixed(2)}`, price: `$${(20 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'ULTRA MIKITA', text: `ULTRA MIKITA | $${(30 * (1 - discount / 100)).toFixed(2)}`, price: `$${(30 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'PREMIUM MIKITA', text: `PREMIUM MIKITA | $${(40 * (1 - discount / 100)).toFixed(2)}`, price: `$${(40 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'INFINITY MIKITA', text: `INFINITY MIKITA | $${(50 * (1 - discount / 100)).toFixed(2)}`, price: `$${(50 * (1 - discount / 100)).toFixed(2)}` }
         ];
     } else if (server === 'Plots City') {
         ranks = [
-            { value: 'VIP', text: 'VIP | $5', price: '$5' },
-            { value: 'MVP', text: 'MVP | $10', price: '$10' },
-            { value: 'EPIC', text: 'EPIC | $15', price: '$15' },
-            { value: 'MIKITA', text: 'MIKITA | $20', price: '$20' },
-            { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
-            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' },
-            { value: 'INFINITY MIKITA', text: 'INFINITY MIKITA | $50', price: '$50' }
+            { value: 'VIP', text: `VIP | $${(5 * (1 - discount / 100)).toFixed(2)}`, price: `$${(5 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MVP', text: `MVP | $${(10 * (1 - discount / 100)).toFixed(2)}`, price: `$${(10 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'EPIC', text: `EPIC | $${(15 * (1 - discount / 100)).toFixed(2)}`, price: `$${(15 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MIKITA', text: `MIKITA | $${(20 * (1 - discount / 100)).toFixed(2)}`, price: `$${(20 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'ULTRA MIKITA', text: `ULTRA MIKITA | $${(30 * (1 - discount / 100)).toFixed(2)}`, price: `$${(30 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'PREMIUM MIKITA', text: `PREMIUM MIKITA | $${(40 * (1 - discount / 100)).toFixed(2)}`, price: `$${(40 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'INFINITY MIKITA', text: `INFINITY MIKITA | $${(50 * (1 - discount / 100)).toFixed(2)}`, price: `$${(50 * (1 - discount / 100)).toFixed(2)}` }
         ];
     } else if (server === 'BoxPvP') {
         ranks = [
-            { value: 'VIP', text: 'VIP | $5', price: '$5' },
-            { value: 'MVP', text: 'MVP | $10', price: '$10' },
-            { value: 'EPIC', text: 'EPIC | $15', price: '$15' },
-            { value: 'MIKITA', text: 'MIKITA | $20', price: '$20' },
-            { value: 'ULTRA MIKITA', text: 'ULTRA MIKITA | $30', price: '$30' },
-            { value: 'PREMIUM MIKITA', text: 'PREMIUM MIKITA | $40', price: '$40' },
-            { value: 'INFINITY MIKITA', text: 'INFINITY MIKITA | $50', price: '$50' }
+            { value: 'VIP', text: `VIP | $${(5 * (1 - discount / 100)).toFixed(2)}`, price: `$${(5 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MVP', text: `MVP | $${(10 * (1 - discount / 100)).toFixed(2)}`, price: `$${(10 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'EPIC', text: `EPIC | $${(15 * (1 - discount / 100)).toFixed(2)}`, price: `$${(15 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MIKITA', text: `MIKITA | $${(20 * (1 - discount / 100)).toFixed(2)}`, price: `$${(20 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'ULTRA MIKITA', text: `ULTRA MIKITA | $${(30 * (1 - discount / 100)).toFixed(2)}`, price: `$${(30 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'PREMIUM MIKITA', text: `PREMIUM MIKITA | $${(40 * (1 - discount / 100)).toFixed(2)}`, price: `$${(40 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'INFINITY MIKITA', text: `INFINITY MIKITA | $${(50 * (1 - discount / 100)).toFixed(2)}`, price: `$${(50 * (1 - discount / 100)).toFixed(2)}` }
         ];
     }
 
