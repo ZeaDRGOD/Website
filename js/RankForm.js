@@ -24,7 +24,7 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
 
         const submissionCount = parseInt(localStorage.getItem('submissionCount')) || 0;
 
-        if (submissionCount < 5) {
+        if (submissionCount < 10) {
             localStorage.setItem('submissionCount', submissionCount + 1);
             const submitButton = document.getElementById('submit');
             submitButton.disabled = true;
@@ -33,7 +33,7 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
         } else {
             const submitButton = document.getElementById('submit');
             submitButton.disabled = true;
-            alert('You can only submit 3 times in a day.');
+            alert('You can only submit 10 times in a day.');
             submitButton.value = 'Try again later!';
             return false;
         }
