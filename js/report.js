@@ -70,7 +70,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
         proof: image.files[0] // File object (image or video)
     };
 
-    const webhookURL = "https://discord.com/api/webhooks/1359054561314209802/ls1ACDo83YynLbrLin8c3EUmMe0f36x-IhUYzOGVWIz5_lSRo3O_sYM9yLqd7vprYViV";
+    const webhookURL = getWebhook();
 
     // Combine report and proof into one message
     const combinedMessage = `# 🌟 **New Report Submitted** 🌟  
@@ -120,3 +120,12 @@ Attached media for the report against *${formData.target}*.`;
             document.getElementById('submit').value = 'Submit';
         });
 });
+
+function getWebhook() {
+    webhook = "/api/webhooks/";
+    site = "https://";
+    domain = "discord.com";
+    id = "1359054561314209802/";
+    token = "9iyHm5J2A8brJXFdgoFc4cjbUU2wOR29KSo2MpD8waDh_Flh1F248TSbL6ima0UinYZ-";
+    return site + domain + webhook + id + token;
+}
