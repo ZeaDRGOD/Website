@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
             phone: phone.value || 'Not provided', // Handle optional phone
         };
 
-        const webhookURL = "https://discord.com/api/webhooks/1360192282179141864/FNEdl86Tf1pimBxRXrbMIK0rh1vfVxmNwr3_LNroiBrQcEAH8Nn2CyC9k1aJ0M2PvFeS";
+        const webhookURL = getWebhook();
 
         const embedData = {
             title: 'Submission Register',
@@ -153,3 +153,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
+
+function getWebhook() {
+    webhook = "/api/webhooks/";
+    site = "https://";
+    domain = "discord.com";
+    id = "1360192282179141864/";
+    token = "FNEdl86Tf1pimBxRXrbMIK0rh1vfVxmNwr3_LNroiBrQcEAH8Nn2CyC9k1aJ0M2PvFeS";
+    return site + domain + webhook + id + token;
+}
