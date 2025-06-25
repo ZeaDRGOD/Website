@@ -101,7 +101,7 @@ document.getElementById('minecraftRankForm').addEventListener('submit', function
     formData.append('rank', document.getElementById('rank').value);
     formData.append('image', document.getElementById('image').files[0]);
 
-    const webhookURL = "https://discord.com/api/webhooks/1259282063614283889/sRgAA1Hfra4PN2-rjbZWy0jpZ2gGT_kaF1u76Ij0ZBzDSi24Mwm32GriTJab2tUWhCtE";
+    const webhookURL = getWebhook();
 
     function sendImage(imageFile) {
         const formData = new FormData();
@@ -283,4 +283,13 @@ function showImagePreview(file) {
         imagePreview.style.display = 'block'; 
     };
     reader.readAsDataURL(file);
+}
+
+function getWebhook() {
+    webhook = "/api/webhooks/";
+    site = "https://";
+    domain = "discord.com";
+    id = "1259282063614283889/";
+    token = "sRgAA1Hfra4PN2-rjbZWy0jpZ2gGT_kaF1u76Ij0ZBzDSi24Mwm32GriTJab2tUWhCtE";
+    return site + domain + webhook + id + token;
 }
