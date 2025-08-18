@@ -184,7 +184,17 @@ document.getElementById('server').addEventListener('change', function() {
     rankSelect.disabled = false;
 
     let ranks;
-    if (server === 'Economy SMP') {
+    if (server === 'Economy SMP (Map A)') {
+        ranks = [
+            { value: 'VIP', text: `VIP | $${(5 * (1 - discount / 100)).toFixed(2)}`, price: `$${(5 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MVP', text: `MVP | $${(10 * (1 - discount / 100)).toFixed(2)}`, price: `$${(10 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'EPIC', text: `EPIC | $${(15 * (1 - discount / 100)).toFixed(2)}`, price: `$${(15 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'MIKITA', text: `MIKITA | $${(20 * (1 - discount / 100)).toFixed(2)}`, price: `$${(20 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'ULTRA MIKITA', text: `ULTRA MIKITA | $${(30 * (1 - discount / 100)).toFixed(2)}`, price: `$${(30 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'PREMIUM MIKITA', text: `PREMIUM MIKITA | $${(40 * (1 - discount / 100)).toFixed(2)}`, price: `$${(40 * (1 - discount / 100)).toFixed(2)}` },
+            { value: 'INFINITY MIKITA', text: `INFINITY MIKITA | $${(50 * (1 - discount / 100)).toFixed(2)}`, price: `$${(50 * (1 - discount / 100)).toFixed(2)}` }
+        ];
+    } else if (server === 'Economy SMP (Map B)') {
         ranks = [
             { value: 'VIP', text: `VIP | $${(5 * (1 - discount / 100)).toFixed(2)}`, price: `$${(5 * (1 - discount / 100)).toFixed(2)}` },
             { value: 'MVP', text: `MVP | $${(10 * (1 - discount / 100)).toFixed(2)}`, price: `$${(10 * (1 - discount / 100)).toFixed(2)}` },
@@ -293,4 +303,5 @@ function getWebhook() {
     token = "sRgAA1Hfra4PN2-rjbZWy0jpZ2gGT_kaF1u76Ij0ZBzDSi24Mwm32GriTJab2tUWhCtE";
     return site + domain + webhook + id + token;
 }
+
 
