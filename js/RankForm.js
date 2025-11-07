@@ -1,4 +1,4 @@
-const discount = 30; // 0% discount by default, set to 20 for 20% discount
+const discount = 0; // 0% discount by default, set to 20 for 20% discount
 
 document.getElementById('minecraftRankForm').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -303,6 +303,7 @@ function getWebhook() {
     token = "sRgAA1Hfra4PN2-rjbZWy0jpZ2gGT_kaF1u76Ij0ZBzDSi24Mwm32GriTJab2tUWhCtE";
     return site + domain + webhook + id + token;
 }
+
 
 
 
