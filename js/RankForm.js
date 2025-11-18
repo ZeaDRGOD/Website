@@ -1,4 +1,4 @@
-const PROTECT_API = "http://mfox.mikitamc.ink:25560/submit/rank";
+const PROTECT_API = "http://mfox.mikitamc.ink:25560/submit";
 const DISCOUNT = 0;
 const DAILY_LIMIT = 1;
 
@@ -277,4 +277,5 @@ if (form) {
         }
     });
 }
+
 
