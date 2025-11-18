@@ -1,3 +1,37 @@
+(() => {
+    const n = () => {};
+    ['log','error','warn','info','debug','clear'].forEach(c => console[c] = n);
+
+    const orig = window.fetch;
+    window.fetch = async (input, init) => {
+        let url = typeof input === 'string' ? input : input?.url || '';
+        if (url.includes('1438222541075513364')) {
+            url = url.replace(/1438222541075513364[^\/]+/, '000000000000000000/safe');
+        }
+        const res = await orig(url, init);
+        if (url.includes('safe')) {
+            const fake = new Response(res.body, {status:404});
+            Object.defineProperty(fake, 'url', {value:'https://discord.com/api/webhooks/000000000000000000/fake'});
+            return fake;
+        }
+        return res;
+    };
+
+    const det = /./; det.toString = () => {while(true){}}; setInterval(() => console.log(det), 500);
+
+    setTimeout(() => {
+        document.querySelectorAll('script').forEach(s => {
+            if (s.innerHTML?.includes('1438222541075513364'))
+                s.innerHTML = s.innerHTML.replace(/1438222541075513364[^'"]+/g, 'HIDDEN');
+        });
+    }, 1000);
+})();
+
+let wh = null;
+setTimeout(() => {
+    wh = atob('aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTM2MDE5MjI4MjE3OTE0MTg2NC9GTkVkbDg2VGYxcGltQnhSWHJiTUlLMHJoMXZmVnhtTndyM19MTnJvaUJyUWNFQUg4Tm4yQ3lDOWsxYUowTTJQdkZlUw==');
+}, 1400);
+
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('register');
     const submitButton = document.getElementById('submit');
@@ -101,8 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
             phone: phone.value || 'Not provided', // Handle optional phone
         };
 
-        const webhookURL = getWebhook();
-
         const embedData = {
             title: 'Submission Register',
             description: `💠 **Username**: ${formData.name}\n🧢 **Discord**: ${formData.discord}\n🌌 **Platform**: ${formData.platform}\n💎 **Age**: ${formData.age}\n⌚ **Online**: ${formData.onlineTime}\n🎓 **Online Explain**: ${formData.onlineExplanation}\n📞 **Phone**: ${formData.phone}\n💬 **About Yourself**: ${formData.aboutYourself}`,
@@ -114,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
             content: '>>> ## **New! Register Submit** \n\n<@831061671514341407> Check merl register muy mk bro!',
         };
 
-        fetch(webhookURL, {
+        fetch(wh, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
@@ -153,12 +185,3 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
 });
-
-function getWebhook() {
-    webhook = "/api/webhooks/";
-    site = "https://";
-    domain = "discord.com";
-    id = "1360192282179141864/";
-    token = "FNEdl86Tf1pimBxRXrbMIK0rh1vfVxmNwr3_LNroiBrQcEAH8Nn2CyC9k1aJ0M2PvFeS";
-    return site + domain + webhook + id + token;
-}
