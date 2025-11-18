@@ -1,17 +1,6 @@
-/* protect-client.js
-   Complete secure frontend:
-   - Sends form to protection server (no webhook leaked)
-   - File preview + drag & drop
-   - Rank selection + pricing + discount
-   - Local daily submission limit (3/day)
-   - SweetAlert feedback
-   - Console obfuscation (local-only, no network fake webhooks)
-*/
-
-/* CONFIG - update if needed */
-const PROTECT_API = "http://mfox.mikitamc.ink:25560/submit/rank"; // <-- your python endpoint
-const DISCOUNT = 30; // percent discount, 0-100
-const DAILY_LIMIT = 1; // how many submissions per day
+const PROTECT_API = "http://mfox.mikitamc.ink:25560/submit/rank";
+const DISCOUNT = 0;
+const DAILY_LIMIT = 1;
 
 /* ----------------- helpers ----------------- */
 function base64Encode(str) {
@@ -20,11 +9,10 @@ function base64Encode(str) {
 function base64Decode(str) {
     return decodeURIComponent(escape(atob(str)));
 }
-/* lightweight "obfuscation" for console messages (local-only) */
 function obfuscateConsole(message) {
     try {
         const encoded = base64Encode(message);
-        console.log("[log] %s", encoded); // only encoded string appears in console
+        console.log("[log] %s", encoded);
     } catch (e) {
         console.log(message);
     }
@@ -48,7 +36,7 @@ function incrementSubmitCount() {
 
 /* ----------------- DOM elements ----------------- */
 const form = document.getElementById('minecraftRankForm');
-const submitBtn = document.getElementById('submit'); // expects <input type="submit" id="submit"> or similar
+const submitBtn = document.getElementById('submit');
 const fileInput = document.getElementById('image');
 const uploadBtn = document.getElementById('upload-btn');
 const uploadContainer = document.getElementById('upload-container');
@@ -238,16 +226,11 @@ if (form) {
         fd.append('rank', rank);
         fd.append('image', imageFile);
 
-        // OPTIONAL: if your python protector expects an endpoint type, e.g. "rank"
-        // fd.append('endpoint', 'rank');
-
         // Make the request to your protection server
         try {
             const res = await fetch(PROTECT_API, {
                 method: 'POST',
                 body: fd,
-                // If your server requires an API key, add it here:
-                // headers: { 'X-API-KEY': 'your_api_key_here' }
             });
 
             if (!res.ok) {
@@ -294,3 +277,4 @@ if (form) {
         }
     });
 }
+
