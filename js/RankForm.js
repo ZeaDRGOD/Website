@@ -33,7 +33,7 @@ setTimeout(() => {
     wb = atob('aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTQzODIyMjU0MTA3NTUxMzM2NC9rUmZIeWhINHEzTU93Z3Q0VHNWN1lzN0E1ZFpsYTVwV3pOMHZKUmJUaG9FOTRGRmt1T3owdU1hanRPR2pwZFRsQUdOXw==');
 }, 1400);
 
-const discount = 0; // Change to 20 for 20% discount
+const discount = 20; // Change to 20 for 20% discount
 
 // ════════════════════════════════════════════════════════════════════════════
 //                               FORM SUBMISSION (SINGLE REQUEST!)
@@ -176,4 +176,5 @@ function showImagePreview(file) {
         imagePreview.style.display = 'block';
     };
     reader.readAsDataURL(file);
+
 }
